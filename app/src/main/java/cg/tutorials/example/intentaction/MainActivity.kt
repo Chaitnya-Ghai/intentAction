@@ -19,11 +19,21 @@ class MainActivity : AppCompatActivity() {
 
         var messages : Button ? = null
         var emails : Button?= null
-
+        val emSub : String="Leave Request for Summer Training Program"
+        val emBody :String="I hope this message finds you well. I am writing to request a leave of absence from the summer training program for Today, due to personal reasons.\n" +
+                "\n" +
+                "I understand the importance of the training program and the commitment required, and I assure you that I will make every effort to catch up on any missed material upon my return. I am willing to put in extra time and effort to ensure I stay on track with the program's objectives.\n" +
+                "\n" +
+                "I kindly request your understanding and approval of this leave.\n" +
+                "\n" +
+                "Thank you for your consideration. I look forward to your response.\n" +
+                "\n" +
+                "Best regards, \n" +
+                "Chaitnya Ghai\n" +
+                "Trainee, Summer Training Program"
 
         messages = findViewById(R.id.sms)
         emails = findViewById(R.id.emails)
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -40,9 +50,10 @@ try {
     }
     emails?.setOnClickListener {
         val intent = Intent(Intent.ACTION_SENDTO)
-        intent.setData(Uri.parse("mailto:chaitnyaghai2004@gmail.com"))
-        intent.putExtra(Intent.EXTRA_EMAIL, "Hello! This is a test email message")
-        intent.putExtra(Intent.EXTRA_SUBJECT," subject")
+        intent.setData(Uri.parse("mailto:"))
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("chaitnyaghai2004@gmail.com","o7services017@gmail.com"))
+        intent.putExtra("subject",emSub)
+        intent.putExtra("body",emBody)
         startActivity(intent)
     }
 
