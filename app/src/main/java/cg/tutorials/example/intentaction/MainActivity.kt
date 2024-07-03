@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-
         var messages : Button ? = null
         var emails : Button?= null
         val emSub : String="Leave Request for Summer Training Program"
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
                 "Best regards, \n" +
                 "Chaitnya Ghai\n" +
                 "Trainee, Summer Training Program"
-
         messages = findViewById(R.id.sms)
         emails = findViewById(R.id.emails)
 
@@ -51,12 +49,11 @@ try {
     emails?.setOnClickListener {
         val intent = Intent(Intent.ACTION_SENDTO)
         intent.setData(Uri.parse("mailto:"))
-        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("chaitnyaghai2004@gmail.com","o7services017@gmail.com"))
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("o7services017@gmail.com","chaitnyaghai2004@gmail.com"))
         intent.putExtra("subject",emSub)
         intent.putExtra("body",emBody)
         startActivity(intent)
     }
-
 }
 catch (e:Exception){
     Log.e("TAG", "onCreate: " )
